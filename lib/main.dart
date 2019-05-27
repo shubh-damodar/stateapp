@@ -9,9 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bloc Pattern',
-      theme: ThemeData(
-        primarySwatch: Colors.orange
-      ),
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

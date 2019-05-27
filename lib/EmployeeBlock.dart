@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'Employee.dart';
 
 class EmployeeBloc {
-
   List<Employee> _employeeList = [
     Employee(1, "Employee One", 10000.0),
     Employee(2, "Employee Two", 20000.0),
@@ -11,10 +9,11 @@ class EmployeeBloc {
     Employee(4, "Employee Four", 40000.0),
     Employee(5, "Employee Five", 50000.0),
     Employee(6, "Employee Six", 60000.0),
+    Employee(7, "Employee Six", 10000.0),
+    Employee(8, "Employee Six", 20000.0),
   ];
 
   final _employeeListStreamController = StreamController<List<Employee>>();
-
   //For increment and decrement
   final _employeeSalaryIncrementStreamController = StreamController<Employee>();
   final _employeeSalaryDecrementStreamController = StreamController<Employee>();
@@ -56,7 +55,7 @@ class EmployeeBloc {
 
     double decrementedSalary = salary * 20/100;
 
-    _employeeList[employee.id -1].salary = salary + decrementedSalary;
+    _employeeList[employee.id -1].salary = salary - decrementedSalary;
 
     employeeListSink.add(_employeeList);
 
@@ -66,5 +65,6 @@ class EmployeeBloc {
     _employeeSalaryIncrementStreamController.close();
     _employeeSalaryDecrementStreamController.close();
     _employeeListStreamController.close();
+
   }
 }
